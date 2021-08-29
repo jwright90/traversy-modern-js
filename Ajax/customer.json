@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "John Doe",
+    "company": "Wright Corp",
+    "phone": "12345-055-066"
+  },
+  {
+    "id": 2,
+    "name": "Rob Roberson",
+    "company": "Rob Corp",
+    "phone": "45654-055-066"
+  },
+  {
+    "id": 3,
+    "name": "James Smith",
+    "company": "Smith Corp",
+    "phone": "45322-055-066"
+  }
+]
