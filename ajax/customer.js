@@ -42,10 +42,10 @@ function loadCustomer(e) {
       const customer = JSON.parse(this.responseText);
       const output = `
         <ul>
-          <li>ID: ${customer.id}</li>
-          <li>Name: ${customer.name}</li>
-          <li>Company: ${customer.company}</li>
-          <li>Phone: ${customer.phone}</li>
+          <li>ID: ${customer[0]['id']}</li>
+          <li>Name: ${customer[0]['name']}</li>
+          <li>Company: ${customer[0]['company']}</li>
+          <li>Phone: ${customer[0]['phone']}</li>
         </ul>
       `;
 
