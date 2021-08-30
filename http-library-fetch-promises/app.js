@@ -14,9 +14,9 @@ const data = {
 }
 
 // Create a User
-// http.post('https://jsonplaceholder.typicode.com/users', data)
-//   .then(data => console.log(data))
-//   .catch(err => console.log(err));
+http.post('https://jsonplaceholder.typicode.com/users', data)
+  .then(data => console.log(data))
+  .catch(err => console.log(err));
 
 
 // Update a User
@@ -25,6 +25,6 @@ const data = {
 //   .catch(err => console.log(err));
 
 // Delete a User
-http.delete('https://jsonplaceholder.typicode.com/users/2')
-  .then(data => console.log(data))
-  .catch(err => console.log(err));
+// http.delete('https://jsonplaceholder.typicode.com/users/2')
+//   .then(data => console.log(data))
+//   .catch(err => console.log(err));

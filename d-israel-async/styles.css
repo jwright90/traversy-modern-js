@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html, body {
+  padding: 20px;
+}
+
+p {
+  line-height: 1.4rem;
+}
+
+ul.items-1 {
+  display: flex;
+
+}
+
+li {
+  font-size: 18px;
+  list-style: none;
+  padding: 0 10px;
+}
+
+.code {
+  margin-bottom: 20px;
+}
+
