@@ -1,0 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  padding: 20px 0;
+}

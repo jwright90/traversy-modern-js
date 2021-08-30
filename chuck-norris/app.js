@@ -18,7 +18,6 @@ function getJokes(e) {
         response.value.forEach(joke => {
           output += `<li>${joke.joke}</li>`;
         })
-
       } else {
         output += '<li>Something went wrong</li>';
       }
