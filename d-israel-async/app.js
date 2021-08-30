@@ -1,34 +1,94 @@
-exampleOne = document.getElementById('example-1');
 itemsOne = document.querySelector('.items-1');
+itemsTwo = document.querySelector('.items-2');
+itemsThree = document.querySelector('.items-3');
+itemsFour = document.querySelector('.items-4');
 
-function countOne(item) {
+function countItem(item) {
   let listItem = document.createElement('li');
   listItem.innerText = item;
   itemsOne.appendChild(listItem);
 }
 
-countOne(1);
-countOne(2);
-countOne(3);
+countItem(1);
+countItem(2);
+countItem(3);
 
-setTimeout(() => {
-  countOne(4);
-}, 1500)
+function countFour() {
+  setTimeout(() => {
+    countItem(4);
+  }, 2500)
+}
 
-countOne(5);
+function countFive() {
+  setTimeout(() => {
+    countItem(5);
+  }, 500)
+}
+
+countFour();
+countFive();
+
+function countItemCB(item) {
+  let listItem = document.createElement('li');
+  listItem.innerText = item;
+  itemsTwo.appendChild(listItem);
+}
+
+countItemCB(1);
+countItemCB(2);
+countItemCB(3);
+
+function countFourCB(cb) {
+  setTimeout(() => {
+    countItemCB(4);
+    cb();
+  }, 2500)
+}
+
+// The callback has to go in the event that takes the longest.
+// We may not always know which event takes the longest!
+
+function countFiveCB() {
+  setTimeout(() => {
+    countItemCB(5);
+  }, 500)
+}
+
+countFourCB(countFiveCB);
 
 
-// const promise = new Promise((resolve, reject) => {
-//   if (false) {
-//     resolve('Successful')
-//   } else (
-//     reject('Error')
-//   )
-// });
+// Using Promises
 
-// promise
-//   .then((data) => { console.log(data) })
-//   .catch((error) => { console.log(error) });
+function countItemP(item) {
+  let listItem = document.createElement('li');
+  listItem.innerText = item;
+  itemsThree.appendChild(listItem);
+}
+
+countItemP(1);
+countItemP(2);
+countItemP(3);
+
+function countFourP() {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      countItemP(4)
+      resolve(countFiveP());
+    }, 2500)
+  })
+}
+
+function countFiveP() {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      countItemP(5)
+      resolve('item 5');
+    }, 500)
+  })
+}
+
+countFourP();
+
 
 const promise1 = new Promise((resolve, reject) => {
   setTimeout(() => {
@@ -54,7 +114,6 @@ Promise.all([promise1, promise2, promise3]).then((data) => {
   console.log(data)
 });
 
-
 // fetch("https://jsonplaceholder.typicode.com/posts")
 //   .then((response) => {
 //     return response.json();
@@ -62,6 +121,39 @@ Promise.all([promise1, promise2, promise3]).then((data) => {
 //   .then((json) => {
 //     console.log(json)
 //   });
+
+
+// Async Await
+function countItemAA(item) {
+  let listItem = document.createElement('li');
+  listItem.innerText = item;
+  itemsFour.appendChild(listItem);
+}
+
+countItemAA(1);
+countItemAA(2);
+countItemAA(3);
+
+function countFourAA() {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve(countItemAA(4));
+    }, 2500)
+  })
+}
+
+function countFiveAA() {
+  setTimeout(() => {
+    countItemAA(5);
+  }, 500)
+}
+
+async function countAA() {
+  await countFourAA();
+  countFiveAA();
+}
+
+countAA();
 
 async function getPosts() {
   try {
@@ -76,5 +168,7 @@ async function getPosts() {
 }
 
 getPosts();
+
+
 
 

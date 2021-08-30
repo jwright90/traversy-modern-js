@@ -9,12 +9,11 @@ html, body {
 }
 
 p {
-  line-height: 1.4rem;
+  line-height: 2rem;
 }
 
-ul.items-1 {
+.flex {
   display: flex;
-
 }
 
 li {
